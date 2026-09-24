@@ -1,5 +1,7 @@
 package br.edu.univag.contas.modelo;
 
+import br.edu.univag.contas.main.cap12.SaldoInsuficienteException;
+
 /**
  * Clase que representa uma conta bancária.
  * @author Shimo
@@ -70,8 +72,7 @@ public abstract class Conta {
         }
 
         if (saldo < quantia) {
-            System.out.println("Saldo insuficiente!");
-            return false;
+            throw new SaldoInsuficienteException("Saldo insuficiente!");
         }
 
         saldo = saldo - quantia;
