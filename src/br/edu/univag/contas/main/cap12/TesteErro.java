@@ -11,7 +11,11 @@ public class TesteErro {
 
     static void metodo1() {
         System.out.println("inicio do metodo1");
-        metodo2();
+        try {
+            metodo2();
+        } catch (NullPointerException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
         System.out.println("fim do metodo1");
     }
 
@@ -20,14 +24,10 @@ public class TesteErro {
         ContaCorrente cc = new ContaCorrente();
 
         for (int i = 0; i <= 15; i++) {
-            try {
-                cc.depositar(i + 1000);
-                System.out.println(cc.getSaldo());
-                if (i == 5) {
-                    cc = null;
-                }
-            } catch (NullPointerException e) {
-                System.out.println("Erro: " + e.getMessage());
+            cc.depositar(i + 1000);
+            System.out.println(cc.getSaldo());
+            if (i == 5) {
+                cc = null;
             }
         }
 
