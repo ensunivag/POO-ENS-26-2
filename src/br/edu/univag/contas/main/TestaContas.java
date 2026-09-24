@@ -2,6 +2,7 @@ package br.edu.univag.contas.main;
 
 import br.edu.univag.contas.ManipuladorDeContas;
 import br.edu.univag.contas.ManipuladorDeSeguroDeVida;
+import br.edu.univag.contas.ManipuladorDeTributaveis;
 import br.edu.univag.contas.modelo.Conta;
 import br.edu.univag.contas.tela.SistemaBancario;
 
@@ -10,7 +11,7 @@ public class TestaContas {
         criaEListaContas();
         criaEListaSeguros();
 
-        SistemaBancario.listarTributaveis();
+        listaImpostos();
     }
 
     private static void criaEListaContas() {
@@ -47,5 +48,11 @@ public class TestaContas {
         SistemaBancario.adicionarSeguro(mdsv.getSeguroDeVida());
 
         SistemaBancario.listarSeguros();
+    }
+
+    private static void listaImpostos() {
+        SistemaBancario.listarTributaveis();
+        ManipuladorDeTributaveis mdt = new ManipuladorDeTributaveis();
+        SistemaBancario.exibeTotalImpostos(mdt);
     }
 }

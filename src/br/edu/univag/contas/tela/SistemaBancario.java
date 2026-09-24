@@ -3,6 +3,7 @@ package br.edu.univag.contas.tela;
 import java.util.List;
 import java.util.ArrayList;
 
+import br.edu.univag.contas.ManipuladorDeTributaveis;
 import br.edu.univag.contas.modelo.Conta;
 import br.edu.univag.contas.modelo.SeguroDeVida;
 import br.edu.univag.contas.modelo.Tributavel;
@@ -71,5 +72,10 @@ public class SistemaBancario {
                     tributavel.getValorImposto(), tributavel.getTipo());
             }
         }
+    }
+
+    public static void exibeTotalImpostos(ManipuladorDeTributaveis mdt) {
+        mdt.calculaImpostos(tributaveis);
+        System.out.printf("Total de impostos: R$ %.2f%n", mdt.getTotal());
     }
 }
