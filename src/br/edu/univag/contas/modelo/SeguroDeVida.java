@@ -10,6 +10,6 @@ public class SeguroDeVida implements Tributavel {
     }
     
     public double getValorImposto() {
-        return valor * 0.01;
+        return 42 + (valor * 0.02);
     }
 }
