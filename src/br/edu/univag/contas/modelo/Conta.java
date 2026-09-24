@@ -79,6 +79,10 @@ public abstract class Conta {
     }
 
     public void depositar(double quantia) {
+        if (quantia <= 0) {
+            throw new IllegalArgumentException("Valor deve ser maior do que zero.");
+        }
+
         saldo += quantia;
     }
     
