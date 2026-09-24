@@ -9,6 +9,8 @@ public class TestaContas {
     public static void main(String[] args) {
         criaEListaContas();
         criaEListaSeguros();
+
+        SistemaBancario.listarTributaveis();
     }
 
     private static void criaEListaContas() {
@@ -39,10 +41,10 @@ public class TestaContas {
         ManipuladorDeSeguroDeVida mdsv = new ManipuladorDeSeguroDeVida();
 
         mdsv.criaSeguro(5001, "Patolino", 10_000);
-        SistemaBancario.adicionarSegur(mdsv.getSeguroDeVida());
+        SistemaBancario.adicionarSeguro(mdsv.getSeguroDeVida());
 
         mdsv.criaSeguro(5002, "Kara Kent", 18_000);
-        SistemaBancario.adicionarSegur(mdsv.getSeguroDeVida());
+        SistemaBancario.adicionarSeguro(mdsv.getSeguroDeVida());
 
         SistemaBancario.listarSeguros();
     }
